@@ -1,17 +1,16 @@
-// Just in case any students were absent or this was missed. Do not use the weather API provided by FreeCodeCamp. 
-// You can use any HTTPS based weather API you choose but it is recommended to use openweatherapi.org as this provides an HTTPS connection and has all the data needed to complete all challenges in the assignment. 
-// If you find another API you are welcome to use it.
-
 /* global $ APIKEY */
+//intermediate local weather api app
 //makes sure the page loads before the javascript or jquery runs
 
-
-//from news api to start
+//code example from news api to start
 $(document).ready(function(){
     $.ajax({
         method: "GET",
-        //url: "https://home.openweathermap.org/api_keys",
+        //url: "api.openweathermap.org/data/2.5/weather?q={boston},{USA}",
+        //url: "api.openweathermap.org/data/2.5/weather?q={city name},{country code}",
         url: "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={APIKEY}",
+        //url: "https://api.openweathermap.org/data/2.5/forecast?id={APIKEY}",
+        //is loading the data from the id 52901 which is Moscow. not reading data below
         data: {
             "coord": {"lon":145.77,"lat":-16.92},
             "weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],
@@ -27,20 +26,23 @@ $(document).ready(function(){
             "cod":200, 
             "apiKey": APIKEY
             },
+            
+            success: function(data) {
+                //sanity check
+                //if (data.status == "ok") {
+                    console.log(data);
+                //}
+            }, 
+            
         });
     }
 );
 //above has correct parens and curlies
-//});
     
     
     
     
-      // success: function(data) {
-        //     if (data.status === "ok") {
-        //             console.log(data)
-        //         }
-        //     }, 
+     
         // done(function( data ) {
         //     console.log( data );
         //     console.log(data.status);
