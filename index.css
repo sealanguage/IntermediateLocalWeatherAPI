@@ -1,4 +1,13 @@
 /*   index.css   */
 
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?auto=format&fit=crop&w=1651&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+    color: white;
+    background-attachment: fixed;
+    background-position: center:
+    background-repeat: no-repeat;
+    background-size: auto;
+}
 #weather  {border: 1px solid #000;}
 
