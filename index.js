@@ -23,7 +23,7 @@
     //     };
         //console.log(showPosition());
         var getGeoLoc = {
-        "longitued": "showPosition.position.coords.longiitude",
+        "longitude": "showPosition.position.coords.longiitude",
         "latitude": "getLatLong.position.coords.latiitude",
         
     };

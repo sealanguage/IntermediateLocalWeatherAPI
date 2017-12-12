@@ -21,7 +21,7 @@
              + position.coords.longitude;
              
          }
-         //console.log(showPosition(position));
+         console.log(showPosition(position));
          
          
          
@@ -29,25 +29,13 @@
 $(document).ready(function(){
     $.ajax({
         method: "GET",
-        //url: "api.openweathermap.org/data/2.5/weather?q={boston},{USA}",
-        //url: "api.openweathermap.org/data/2.5/weather?q={city name},{country code}",
-        url: "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={APIKEY}",
-        //url: "https://api.openweathermap.org/data/2.5/forecast?id={APIKEY}",
-        //is loading the data from the id 52901 which is Moscow. not reading data below
+        url: "https://api.openweathermap.org/data/2.5/weather?&units=imperial",
         data: {
-            "coord": {"lon":145.77,"lat":-16.92},
-            "weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],
-            "base":"cmc stations",
-            "main":{"temp":293.25,"pressure":1019,"humidity":83,"temp_min":289.82,"temp_max":295.37},
-            "wind":{"speed":5.1,"deg":150},
-            "clouds":{"all":75},
-            "rain":{"3h":3},
-            "dt":1435658272,
-            "sys":{"type":1,"id":8166,"message":0.0166,"country":"AU","sunrise":1435610796,"sunset":1435650870},
-            "id":2172797,
-            "name":"Cairns",
-            "cod":200, 
-            "apiKey": APIKEY
+            //tell it to get longitude and latitude
+            lat: lat,
+            lon: lon,
+            
+            apiKey: APIKEY
             },
             
             success: function(data) {
