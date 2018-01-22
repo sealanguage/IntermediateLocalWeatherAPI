@@ -1,3 +1,3 @@
 // a global static variable below
-var APIKEY = "7f719748d27964f24fe290a2d14c78d9"
+var APIKEY = "cd4945d4c3b3d2fbed957bfe9f12b164"
 

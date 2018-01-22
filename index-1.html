@@ -20,12 +20,11 @@
     <div class="row">
         <div id="weather">
             <div class="col-xs-6 text-center" id="icon">put icon here</div>
-            <div class="col-xs-6 text-center" id="degrees">put temp here</div>
+            <div class="col-xs-6 text-center" id="temp">put temp here</div>
         </div>
     </div>
     <div class="row">
         <div id="details">
-            <!--  id "position" feeds lon and lat info into this div   -->
             <div id="position" class="col-xs-4 text-center" >long-lat</div>
             <div class="col-xs-4 text-center" id="wind">wind</div>
             <div class="col-xs-4 text-center" id="degF">degrees</div>
@@ -51,12 +50,28 @@
     <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="key.js"></script>
-    <script src="newTesting.js"></script>   
+    <script src="testing.js"></script>   
     
     <script>
   /* global $ APIKEY navigator position  */ 
      
-      
+        var x = document.getElementById("position");
+        function getLocation() {
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation not supported by this browser";
+            }
+        }
+        //   function showPosition(position) {
+        // var latlon = position.coords.latitude + "," + position.coords.lognitude;
+        // console.log(showPosition(latlon));
+        // }
+        
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: "
+             + position.coords.longitude;
+         }
     </script>
 </body>
 </html>
