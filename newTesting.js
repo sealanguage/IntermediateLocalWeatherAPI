@@ -1,30 +1,39 @@
   /* global $ APIKEY navigator position */
   
   //  html5 gps call
-var x = document.getElementById("position");
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
+// loading weather api data    --  can't seem to access this data 
+$(document).ready(function(){
     
-    function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                showPosition(position);
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        }) 
+        // else { 
+        //     x.innerHTML = "Geolocation is not supported by this browser.";
+        // }
     }
+    // function showPosition(position) {
+    //     x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //     "<br>Longitude: " + position.coords.longitude;
+    // }
    
-    // loading weather api data    --  can't seem to access this data 
-    $(document).ready(function(){
+    function showPosition(position) {
+        var lat = position.coords.latitude; 
+        var lon = position.coords.longitude;
+ 
         $.ajax({
             method: "GET",
             url: "https://api.openweathermap.org/data/2.5/weather?&units=imperial",
-            //url: "https:api.openweathermap.org/data/2.5/weather",
-            data: {apikey: APIKEY },
-            //url: "https://fcc-weather-api.glitch.me/api/current?lat=35&lon=139 ",
-            dataType: "json",
+             dataType: "json",
+             data: {
+                    //tell it to get longitude and latitude from geolocation
+                    lat: lat,
+                    lon: lon,
+                    
+                    apikey: "cd4945d4c3b3d2fbed957bfe9f12b164" },
+           
             // data: {
             //     "coord":{ "lon":159, "lat":35 }, 
             //     "weather":[ { "id":500, "main":"Rain", "description":"light rain", "icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399" } ], 
@@ -40,24 +49,26 @@ var x = document.getElementById("position");
             //     "name":"", 
             //     "cod":200 
             //     },
+            
+            
             success: function(getData) {
-                console.log("read getData function");
-                console.log(getData);
+                console.log("getData function success");
+                console.log("the data is here" + getData);
+                console.log(getData.weather);
+                console.log(getData.main);
+                console.log(getData.main.humidity)
                 
-            }
+                }
+                
             
+                
             });
+            // var weatherData = weather;
+            // console.log(weather);
             
-        })
+            // displayWeather: function(weatherText) {
+                
+            // }
+        } 
+    });
     
-    
-    // function showTemp(degrees) {
-    //     document.getElementById("degrees").innerHTML = data.main.temp;
-    //     console.log(showTemp);
-    // }
-     function success(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-    
-    console.log(position);
-    }
