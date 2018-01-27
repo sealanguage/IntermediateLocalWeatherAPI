@@ -9,11 +9,13 @@ $(document).ready(function(){
                 showPosition(position);
             console.log(position.coords.latitude);
             console.log(position.coords.longitude);
-        }) 
+        });
         // else { 
         //     x.innerHTML = "Geolocation is not supported by this browser.";
         // }
+        
     }
+    
     // function showPosition(position) {
     //     x.innerHTML = "Latitude: " + position.coords.latitude + 
     //     "<br>Longitude: " + position.coords.longitude;
@@ -22,7 +24,9 @@ $(document).ready(function(){
     function showPosition(position) {
         var lat = position.coords.latitude; 
         var lon = position.coords.longitude;
- 
+        var that = this;
+        
+        // ajax call
         $.ajax({
             method: "GET",
             url: "https://api.openweathermap.org/data/2.5/weather?&units=imperial",
@@ -32,7 +36,7 @@ $(document).ready(function(){
                     lat: lat,
                     lon: lon,
                     
-                    apikey: "cd4945d4c3b3d2fbed957bfe9f12b164" },
+                    apikey: "c260543d9bd64dffe018a92c26b02626" },
            
             // data: {
             //     "coord":{ "lon":159, "lat":35 }, 
@@ -53,22 +57,51 @@ $(document).ready(function(){
             
             success: function(getData) {
                 console.log("getData function success");
-                console.log("the data is here" + getData);
-                console.log(getData.weather);
-                console.log(getData.main);
-                console.log(getData.main.humidity)
+                console.log(getData);
+                console.log("weather data: " + getData.weather);
+                console.log("the array called main: " + getData.main);
+                console.log("humidity: " + getData.main.humidity);
+                console.log("temperature: " + getData.main.temp);
+                console.log("city name: " + getData.name);
+                console.log(getData.weather[0].main);
+                console.log(getData.wind.speed);
+                console.log(getData.wind.deg);
+                //console.log('displaying City name using function: ' +  cityName);
+                //document.getElementById("cityName").innerHTML = "this puts text in cityName";
+                document.getElementById("cityName").innerHTML = getData.name;
+                document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;";
+                document.getElementById("weatherType").innerHTML = getData.weather[0].main;
+                document.getElementById("weatherDescription").innerHTML = getData.weather[0].description;
+                document.getElementById("wind").innerHTML = "Wind speed: " + getData.wind.speed + " mph";
+                document.getElementById("humidity").innerHTML = "Humidity: " + getData.main.humidity + "&percnt;";
                 
-                }
                 
-            
+                
+               
+                },
+            displayWeather: function() {
+                console.log("display weather");
+                
+                
+            },
+                
                 
             });
-            // var weatherData = weather;
-            // console.log(weather);
             
-            // displayWeather: function(weatherText) {
-                
-            // }
         } 
     });
+    
+    
+   /*
+   
+   var images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
+   
+   $('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() *      images.length)] + ')'});
+   
+   
+    + " " + getData.wind.direction.code
+    
+    
+   */
+    
     

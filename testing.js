@@ -11,7 +11,14 @@
                 x.innerHTML = "Geolocation not supported by this browser";
             }
         }
-       
+        function showPosition(position) {
+            var lat = position.coord.lat;
+            var lon = position.coord.lon;
+            x.innerHTML = "Latitude = " + position.coords.lat + "<br>Longitude = "  + position.coords.lon;
+        //navigator.geolocation.getCurrentPosition(function(position));     
+        }
+        console.log(showPosition(position));
+         
         $(document).ready(function(){
         $.ajax({
             method: "GET",
@@ -35,15 +42,7 @@
                 }, 
                 
             });
-         function showPosition(position) {
-            var lat = position.coord.lat;
-            var lon = position.coord.lon;
-            x.innerHTML = "Latitude = " + position.coords.lat + "<br>Longitude = "  + position.coords.lon;
-        //navigator.geolocation.getCurrentPosition(function(position));     
-        }
-        console.log(showPosition(position));
-         
-         
+    
          
     //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
         // api.openweathermap.org/data/2.5/weather?lat = {position.coords.latitude};
@@ -77,15 +76,15 @@
     
 // Website should have a minimalistic yet professional feel:
 //     OK    Title for the page
-// Layout should be mobile friendly
-// Location should be pulled automatically. Use the Project Page to see two ways to do this. Using C9 provides you with an 
-// HTTPS connection so you should be able to use HTML5 geolocation system.
-// The local weather for the day should be displayed:
-// Weather should display the type of weather: sunny, rainy, cloudy etc
+//     OK    Layout should be mobile friendly
+//     OK    Location should be pulled automatically. Use the Project Page to see two ways to do this. Using C9 provides you with an 
+//     OK    HTTPS connection so you should be able to use HTML5 geolocation system.
+//     OK    The local weather for the day should be displayed:
+//     OK    Weather should display the type of weather: sunny, rainy, cloudy etc
 // Weather should display an icon or image depending on the type of weather - recommendation is to use FontAwesome but you can use whatever icon/image system you wish.
-// Weather should display current temperature
+//     OK    Weather should display current temperature
 // Current weather section should allow a click to change from Fahrenheit to Celsius. This could be a button or some other method.
-// Weather must be pulled from an API. Recommended API is the Open Weather API however you are free to use any weather API you wish.
+//     OK    Weather must be pulled from an API. Recommended API is the Open Weather API however you are free to use any weather API you wish.
 
 
 
