@@ -7,6 +7,23 @@
 {
 	coord: {…},
 	weather: Array(3),
+            0: description: "light intensity drizzle"
+            icon: "09n"
+            id: 300
+            main: "Drizzle"
+            __proto__: Object
+            1: description: "mist"
+            icon: "50n"
+            id: 701
+            main: "Mist"
+            __proto__: Object
+            2: description: "light rain"
+            icon: "10n"
+            id: 500
+            main: "Rain"
+            __proto__: Object
+            length: 3
+            __proto__: Array(0)
 	base: "stations",
 	main: {…},
 	visibility: 4023,

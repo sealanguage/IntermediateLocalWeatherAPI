@@ -12,47 +12,28 @@
 </head>
 <body>
 <div class="container-fluid">
+    <!-- top row holds title  -->
     <div class="row">
         <div class="col-xs-12 text-center" id="heading">
-            <h1>Your local weather</h1>
+            <h1><span id="yourCity"> </span> Weather</h1>
         </div>
     </div>
+    <!-- first row holds temperature on left and weather details on right  -->
     <div class="row">
-        <div id="weather">
+            <div class="col-xs-7 text-center" id="xxx">
+                <p class="temperature" id="temperature">&deg;</p>
+            <button type="button" class="celciusButon" onclick"" value="&deg; C">&deg; C</button>
             
-            <div class="col-xs-7 text-center" id="temperature">&deg;</div>
-            <div class="col-xs-5 text-center" id="right-column">
-                <div class="right-tall-col" id="typeContainer">
-                    <div class="weather-type" id="icon">icon here</div>
-                    <div class="weather-type" id="weatherType"></div>
-                    <div class="weather-type" id="weatherDescription"></div>
-                </div>
-                <div class="right-tall-col" id="wind"></div>
-                <div class="right-tall-col" id=""></div>
             </div>
+                <div class="col-xs-5 text-center" id="right-column">
+                    <div class="weather-type text-center" id="icon">icon here</div>
+                    <div class="weather-type text-center" id="weatherType"></div>
+                    <div class="weather-type text-center" id="weatherDescription"></div>
+                    <div class="weather-type text-center" id="wind"></div>
+                    <div class="weatner-type text-center" id="humidity"></div>
+                </div>
         </div>
-    </div>
-    <div class="row">
-        <div id="details">
-            <!--  id "position" feeds lon and lat info into this div   
-            <div id="position" class="col-xs-3 text-center" >empty</div>-->
-            <div class="col-xs-7 text-center" id="cityName">city name</div>
-            <div class="col-xs-5 text-center" id="humidity"></div>
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 text-center" id="btn-weather">
-            <!--
-            <button  onclick="getLocation()" class="btn-primary btn-lg">Try It</button>
-            -->
-            
-            <i class="fas fa-camera-retro"></i>
-            <i class="fas fa-sun"></i>
-            <!--<i class="wi wi-night-sleet"></i>-->
-            <div class="col-xs-12 text-center" id="xxxxx">
-        </div>
-    </div>
+        
 </div>
     
     

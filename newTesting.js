@@ -1,4 +1,4 @@
-  /* global $ APIKEY navigator position */
+  /* global $ APIKEY navigator position styles StyleSheet */
   
   //  html5 gps call
 // loading weather api data    --  can't seem to access this data 
@@ -68,31 +68,56 @@ $(document).ready(function(){
                 console.log(getData.wind.deg);
                 //console.log('displaying City name using function: ' +  cityName);
                 //document.getElementById("cityName").innerHTML = "this puts text in cityName";
-                document.getElementById("cityName").innerHTML = getData.name;
-                document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;";
+                //document.getElementById("cityName").innerHTML = getData.name;
+                document.getElementById("yourCity").innerHTML = getData.name;
+                document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;" + "F";
                 document.getElementById("weatherType").innerHTML = getData.weather[0].main;
                 document.getElementById("weatherDescription").innerHTML = getData.weather[0].description;
                 document.getElementById("wind").innerHTML = "Wind speed: " + getData.wind.speed + " mph";
                 document.getElementById("humidity").innerHTML = "Humidity: " + getData.main.humidity + "&percnt;";
                 
-                
-                
                
+                console.log("heres the temp again: " + getData.main.temp);    //  this gets the temperature successfully
+                
+                tempC = ((5/9) * (getData.main.temp - 32));
+                //return tempC;
+                console.log("heres temp in C: " + Math.round(tempC));
                 },
-            displayWeather: function() {
-                console.log("display weather");
+               
+                //},
+            createCelciusButton: function() {
+                var celciusButton = document.createElement('button');
+                celciusButton.textContent = "celcius";
+                celciusButton.className = 'celciusButton';
+                return celciusButton;
                 
-                
-            },
+            }
                 
                 
             });
-            
+ 
         } 
     });
     
-    
+        // const gradient = 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)';
+
+        // const styles = StyleSheet.create({
+        //   button: {
+        //     background: gradient,
+        //     borderRadius: '3px',
+        //     border: 0,
+        //     color: 'white',
+        //     height: '48px',
+        //     textTransform: 'uppercase',
+        //     padding: '0 25px',
+        //     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+        //   },
+        // });  
+        
+        
    /*
+  
+   
    
    var images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
    
@@ -103,5 +128,5 @@ $(document).ready(function(){
     
     
    */
-    
+   
     

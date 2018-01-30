@@ -8,13 +8,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+    margin: 0px;
+    padding: 0px;
 }
 #weather  {border: 1px solid #000;}
 
-div {border: 0px solid #7FFF00 }
+div {border: 1px solid #7FFF00;
+    margin: 0px 0px;
+    
+}
 
 #temperature {
-    font-size: 9em;
+    font-size: 8em;
 }
 .right-tall-col {
     padding: 14px 0px;
