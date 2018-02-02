@@ -1,6 +1,6 @@
-  /* global $ APIKEY navigator position styles StyleSheet */
+/* global $ APIKEY navigator position styles StyleSheet */
   
-  //  html5 gps call
+//  html5 gps call
 // loading weather api data    --  can't seem to access this data 
 $(document).ready(function(){
     
@@ -15,11 +15,6 @@ $(document).ready(function(){
         // }
         
     }
-    
-    // function showPosition(position) {
-    //     x.innerHTML = "Latitude: " + position.coords.latitude + 
-    //     "<br>Longitude: " + position.coords.longitude;
-    // }
    
     function showPosition(position) {
         var lat = position.coords.latitude; 
@@ -35,8 +30,8 @@ $(document).ready(function(){
                     //tell it to get longitude and latitude from geolocation
                     lat: lat,
                     lon: lon,
-                    
-                    apikey: "c260543d9bd64dffe018a92c26b02626" },
+                    //use the api key but replace this key before pushing the code to codeschool 
+                    apikey: "APIKEY" },
            
             // data: {
             //     "coord":{ "lon":159, "lat":35 }, 
@@ -66,9 +61,12 @@ $(document).ready(function(){
                 console.log(getData.weather[0].main);
                 console.log(getData.wind.speed);
                 console.log(getData.wind.deg);
-                //console.log('displaying City name using function: ' +  cityName);
-                //document.getElementById("cityName").innerHTML = "this puts text in cityName";
-                //document.getElementById("cityName").innerHTML = getData.name;
+                
+                var tempF = Math.round(getData.main.temp) + " &deg; " + "F";
+                console.log("var tempF: " + tempF);                           //  without the function this reads tempF to the console successfully
+                var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;" + "C";      //qithout function this reads tempC to console successfully
+                    
+
                 document.getElementById("yourCity").innerHTML = getData.name;
                 document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;" + "F";
                 document.getElementById("weatherType").innerHTML = getData.weather[0].main;
@@ -76,28 +74,26 @@ $(document).ready(function(){
                 document.getElementById("wind").innerHTML = "Wind speed: " + getData.wind.speed + " mph";
                 document.getElementById("humidity").innerHTML = "Humidity: " + getData.main.humidity + "&percnt;";
                 
+                    document.getElementById("toggleCelBut").onclick = function() {
+                    //console.log("chg Cel but works");
+                    document.getElementById("temperature").innerHTML = document.getElementById("temperature").innerHTML = tempC;
+                    };
+                    
+                    document.getElementById("toggleFarBut").onclick = function() {
+                    //console.log("chg Far but works");
+                    document.getElementById("temperature").innerHTML = document.getElementById("temperature").innerHTML = tempF;
+                    };
+                    
                
-                console.log("heres the temp again: " + getData.main.temp);    //  this gets the temperature successfully
-                
-                tempC = ((5/9) * (getData.main.temp - 32));
-                //return tempC;
-                console.log("heres temp in C: " + Math.round(tempC));
                 },
-               
-                //},
-            createCelciusButton: function() {
-                var celciusButton = document.createElement('button');
-                celciusButton.textContent = "celcius";
-                celciusButton.className = 'celciusButton';
-                return celciusButton;
-                
-            }
                 
                 
             });
- 
+            
         } 
     });
+    
+    
     
         // const gradient = 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)';
 
@@ -114,11 +110,8 @@ $(document).ready(function(){
         //   },
         // });  
         
-        
    /*
-  
-   
-   
+
    var images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
    
    $('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() *      images.length)] + ')'});
