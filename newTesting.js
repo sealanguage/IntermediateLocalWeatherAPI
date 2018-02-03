@@ -10,9 +10,7 @@ $(document).ready(function(){
             console.log(position.coords.latitude);
             console.log(position.coords.longitude);
         });
-        // else { 
-        //     x.innerHTML = "Geolocation is not supported by this browser.";
-        // }
+        
         
     }
    
@@ -31,23 +29,9 @@ $(document).ready(function(){
                     lat: lat,
                     lon: lon,
                     //use the api key but replace this key before pushing the code to codeschool 
-                    apikey: "c08be9fe3166c8f7b0e7050220030a56" },
+                    apikey: "APIKEY" },
            
-            // data: {
-            //     "coord":{ "lon":159, "lat":35 }, 
-            //     "weather":[ { "id":500, "main":"Rain", "description":"light rain", "icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399" } ], 
-            //     "base":"stations", 
-            //     "main":{ "temp":22.59, "pressure":1027.45, "humidity":100, "temp_min":22.59, "temp_max":22.59, 
-            //     "sea_level":1027.47, "grnd_level":1027.45 }, 
-            //     "wind":{ "speed":8.12, "deg":246.503 }, 
-            //     "rain":{ "3h":0.45 }, 
-            //     "clouds":{ "all":92 }, 
-            //     "dt":1499521932, 
-            //     "sys":{ "message":0.0034, "sunrise":1499451436, "sunset":1499503246 }, 
-            //     "id":0,
-            //     "name":"", 
-            //     "cod":200 
-            //     },
+
             
             
             success: function(getData) {
@@ -96,7 +80,7 @@ $(document).ready(function(){
                     } else if (weatherType === "Rain") {
                         body.style.backgroundImage = "url(weather-imgs/thunderstorm.jpg)";
                     } else if (weatherType === "Mist") {
-                        body.style.backgroundImage = "url(weather-imgs/fog.jpg)";
+                        body.style.backgroundImage = "url(weather-imgs/fog2.jpg)";
                     } else if (weatherType === "Drizzle") {
                         body.style.backgroundImage = "url(weather-imgs/rain.jpg)";
                     } else if (weatherType --- "Snow") {
@@ -110,47 +94,6 @@ $(document).ready(function(){
         } 
     });
     
-    
-       
-    
-    
-    
-    
-    
-        // if (condition1) {
-        //     block of code to be executed if condition1 is true
-        // } else if (condition2) {
-        //     block of code to be executed if the condition1 is false and condition2 is true
-        // } else {
-        //     block of code to be executed if the condition1 is false and condition2 is false
-        // }
 
-    
-        // const gradient = 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)';
-
-        // const styles = StyleSheet.create({
-        //   button: {
-        //     background: gradient,
-        //     borderRadius: '3px',
-        //     border: 0,
-        //     color: 'white',
-        //     height: '48px',
-        //     textTransform: 'uppercase',
-        //     padding: '0 25px',
-        //     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
-        //   },
-        // });  
-        
-   /*
-
-   var images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'];
-   
-   $('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() *      images.length)] + ')'});
-   
-   
-    + " " + getData.wind.direction.code
-    
-    
-   */
    
     
