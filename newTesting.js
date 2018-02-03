@@ -31,9 +31,6 @@ $(document).ready(function(){
                     //use the api key but replace this key before pushing the code to codeschool 
                     apikey: "APIKEY" },
            
-
-            
-            
             success: function(getData) {
                 console.log("getData function success");
                 console.log(getData);
@@ -50,7 +47,6 @@ $(document).ready(function(){
                 console.log("var tempF: " + tempF);                           //  without the function this reads tempF to the console successfully
                 var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;C";      //qithout function this reads tempC to console successfully
                     
-
                 document.getElementById("yourCity").innerHTML = getData.name;
                 document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;F";
                 document.getElementById("weatherType").innerHTML = getData.weather[0].main;
@@ -83,8 +79,10 @@ $(document).ready(function(){
                         body.style.backgroundImage = "url(weather-imgs/fog2.jpg)";
                     } else if (weatherType === "Drizzle") {
                         body.style.backgroundImage = "url(weather-imgs/rain.jpg)";
-                    } else if (weatherType --- "Snow") {
+                    } else if (weatherType === "Snow") {
                         body.style.backgroundImage = "url(weather-imgs/snow.jpg)";
+                    } else {
+                        body.style.backgroundImage = "url(https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?auto=format&fit=crop&w=1651&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D)";
                     }
                 },
                 
