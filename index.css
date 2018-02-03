@@ -7,13 +7,13 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     margin: 0px;
     padding: 0px;
 }
 #weather  {border: 1px solid #000;}
 
-div {border: 1px solid #7FFF00;
+div {border: px solid #7FFF00;
     margin: 0px 0px;
     
 }

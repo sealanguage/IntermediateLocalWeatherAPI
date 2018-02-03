@@ -31,7 +31,7 @@ $(document).ready(function(){
                     lat: lat,
                     lon: lon,
                     //use the api key but replace this key before pushing the code to codeschool 
-                    apikey: "APIKEY" },
+                    apikey: "c08be9fe3166c8f7b0e7050220030a56" },
            
             // data: {
             //     "coord":{ "lon":159, "lat":35 }, 
@@ -62,13 +62,13 @@ $(document).ready(function(){
                 console.log(getData.wind.speed);
                 console.log(getData.wind.deg);
                 
-                var tempF = Math.round(getData.main.temp) + " &deg; " + "F";
+                var tempF = Math.round(getData.main.temp) + "&deg;F";
                 console.log("var tempF: " + tempF);                           //  without the function this reads tempF to the console successfully
-                var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;" + "C";      //qithout function this reads tempC to console successfully
+                var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;C";      //qithout function this reads tempC to console successfully
                     
 
                 document.getElementById("yourCity").innerHTML = getData.name;
-                document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;" + "F";
+                document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;F";
                 document.getElementById("weatherType").innerHTML = getData.weather[0].main;
                 document.getElementById("weatherDescription").innerHTML = getData.weather[0].description;
                 document.getElementById("wind").innerHTML = "Wind speed: " + getData.wind.speed + " mph";
@@ -85,6 +85,23 @@ $(document).ready(function(){
                     };
                     
                
+                var body = document.getElementsByTagName('body')[0];
+                var weatherType = getData.weather[0].main;
+                console.log("weatherType variable = " + weatherType);
+                
+                    if (weatherType === "Clear") {
+                        body.style.backgroundImage = "url(weather-imgs/clear3.jpg)";
+                    } else if (weatherType === "Clouds") {
+                        body.style.backgroundImage = "url(weather-imgs/clouds.jpg)";
+                    } else if (weatherType === "Rain") {
+                        body.style.backgroundImage = "url(weather-imgs/thunderstorm.jpg)";
+                    } else if (weatherType === "Mist") {
+                        body.style.backgroundImage = "url(weather-imgs/fog.jpg)";
+                    } else if (weatherType === "Drizzle") {
+                        body.style.backgroundImage = "url(weather-imgs/rain.jpg)";
+                    } else if (weatherType --- "Snow") {
+                        body.style.backgroundImage = "url(weather-imgs/snow.jpg)";
+                    }
                 },
                 
                 
@@ -94,6 +111,20 @@ $(document).ready(function(){
     });
     
     
+       
+    
+    
+    
+    
+    
+        // if (condition1) {
+        //     block of code to be executed if condition1 is true
+        // } else if (condition2) {
+        //     block of code to be executed if the condition1 is false and condition2 is true
+        // } else {
+        //     block of code to be executed if the condition1 is false and condition2 is false
+        // }
+
     
         // const gradient = 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)';
 
