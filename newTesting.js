@@ -10,14 +10,11 @@ $(document).ready(function(){
             console.log(position.coords.latitude);
             console.log(position.coords.longitude);
         });
-        
-        
     }
    
     function showPosition(position) {
         var lat = position.coords.latitude; 
         var lon = position.coords.longitude;
-        var that = this;
         
         // ajax call
         $.ajax({
@@ -29,7 +26,7 @@ $(document).ready(function(){
                     lat: lat,
                     lon: lon,
                     //use the api key but replace this key before pushing the code to codeschool 
-                    apikey: "APIKEY" },
+                    apikey: "aa68754440800ad1bc6b396c9007c3be" },
            
             success: function(getData) {
                 console.log("getData function success");
@@ -45,7 +42,7 @@ $(document).ready(function(){
                 
                 var tempF = Math.round(getData.main.temp) + "&deg;F";
                 console.log("var tempF: " + tempF);                           //  without the function this reads tempF to the console successfully
-                var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;C";      //qithout function this reads tempC to console successfully
+                var tempC = Math.round(((5/9) * (getData.main.temp - 32)))  + "&deg;C";      //without function this reads tempC to console successfully
                     
                 document.getElementById("yourCity").innerHTML = getData.name;
                 document.getElementById("temperature").innerHTML = Math.round(getData.main.temp) + "&deg;F";
@@ -83,6 +80,14 @@ $(document).ready(function(){
                         body.style.backgroundImage = "url(weather-imgs/snow.jpg)";
                     } else {
                         body.style.backgroundImage = "url(https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?auto=format&fit=crop&w=1651&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D)";
+                    }
+                
+                // try getData === null    for when there is no data in the api
+                var city = getData.name;
+                console.log(city);
+                if (city.value === "Location unavailable") {
+                console.log("Unavailable city" + city);
+                    document.getElementById("yourCity").innerHTML = "Data Unavailable ";
                     }
                 },
                 
